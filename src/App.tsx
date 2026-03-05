@@ -9,7 +9,8 @@ import {
   ChevronRight,
   User,
   Heart,
-  ShieldCheck
+  ShieldCheck,
+  MessageCircle
 } from 'lucide-react';
 import { AitanaChat } from './components/AitanaChat';
 
@@ -176,7 +177,7 @@ const DoctorSection = () => (
         <div className="relative">
           <div className="aspect-[3/4] rounded-[60px] overflow-hidden border-8 border-white shadow-2xl bg-white">
             <img 
-              src="https://lh3.googleusercontent.com/d/1WYO4rFmH9G_AkKDrc3dqwdDj3pgRxy4n" 
+              src="https://lh3.googleusercontent.com/d/1sQTCXpT6kF1k9CnA7S3fsjhHsveVlLGM" 
               className="w-full h-full object-cover object-top"
               alt="Luis Quintero"
               referrerPolicy="no-referrer"
@@ -231,79 +232,180 @@ const ClinicGallery = () => {
   );
 };
 
-const Contact = () => (
-  <section id="contacto" className="py-24 bg-brand-black text-white">
-    <div className="max-w-7xl mx-auto px-8">
-      <div className="grid md:grid-cols-3 gap-12">
-        <div>
-          <h2 className="text-4xl font-light mb-8">Nuestras <br /><span className="italic text-brand-gold">Sedes</span></h2>
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <MapPin className="text-brand-green mt-1" size={24} />
-              <div>
-                <p className="font-sans font-bold text-lg">Sede Tocancipá</p>
-                <p className="text-white/70 font-sans text-sm">
-                  Calle 7 #7-05 segundo piso<br />
-                  Diagonal al Banco BBVA<br />
-                  <b>Lun, Mar, Mié, Vie:</b> 9am - 5pm<br />
-                  <b>Sáb:</b> 9am - 12pm (Cita previa)
-                </p>
+const Contact = () => {
+  const [formData, setFormData] = React.useState({
+    nombre: '',
+    celular: '',
+    sede: 'Tocancipá',
+    motivo: '',
+    fecha: '',
+    hora: ''
+  });
+
+  const handleWhatsApp = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { sede, fecha, hora, motivo } = formData;
+    const message = `Hola Aitana, deseo confirmar mi cita.\n📍 Sede: ${sede}\n🗓️ Fecha: ${fecha}\n⏰ Hora: ${hora}\n🦴 Motivo de consulta: ${motivo}`;
+    const url = `https://wa.me/573135400492?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
+  return (
+    <section id="contacto" className="py-24 bg-brand-black text-white">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="grid md:grid-cols-3 gap-12">
+          <div>
+            <h2 className="text-4xl font-light mb-8">Nuestras <br /><span className="italic text-brand-gold">Sedes</span></h2>
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <MapPin className="text-brand-green mt-1" size={24} />
+                <div>
+                  <p className="font-sans font-bold text-lg">Sede Tocancipá</p>
+                  <p className="text-white/70 font-sans text-sm">
+                    Calle 7 #7-05 segundo piso<br />
+                    Diagonal al Banco BBVA<br />
+                    <b>Lun, Mar, Mié, Vie:</b> 9am - 5pm<br />
+                    <b>Sáb:</b> 9am - 12pm (Cita previa)
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <MapPin className="text-brand-green mt-1" size={24} />
+                <div>
+                  <p className="font-sans font-bold text-lg">Sede Ubaté</p>
+                  <p className="text-white/70 font-sans text-sm">
+                    Calle 10 # 9-75 barrio Simón Bolívar<br />
+                    Cerca del club de tejo de Anpiss<br />
+                    <b>Jueves:</b> 9am - 4pm (Cita previa)
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Phone className="text-brand-green mt-1" size={24} />
+                <div>
+                  <p className="font-sans font-bold text-lg">Atención Telefónica</p>
+                  <p className="text-white/70 font-sans text-sm">
+                    <b>313 540 0492</b>
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <MapPin className="text-brand-green mt-1" size={24} />
-              <div>
-                <p className="font-sans font-bold text-lg">Sede Ubaté</p>
-                <p className="text-white/70 font-sans text-sm">
-                  Calle 10 # 9-75 barrio Simón Bolívar<br />
-                  Cerca del club de tejo de Anpiss<br />
-                  <b>Jueves:</b> 9am - 4pm (Cita previa)
-                </p>
+
+            <div className="mt-12 space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-brand-gold opacity-80">Mapa Tocancipá</h3>
+                <div className="rounded-2xl overflow-hidden border border-white/10 h-48 w-full">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3141.584891669356!2d-73.91623799999999!3d4.9637033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4073c1c56cfd33%3A0x97773d73b11d61bf!2sCl.%207%20%23%207-5%2C%20Tocancip%C3%A1%2C%20Cundinamarca!5e1!3m2!1ses-419!2sco!4v1772734741126!5m2!1ses-419!2sco" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Phone className="text-brand-green mt-1" size={24} />
-              <div>
-                <p className="font-sans font-bold text-lg">Atención Telefónica</p>
-                <p className="text-white/70 font-sans text-sm">
-                  <b>313 540 0492</b>
-                </p>
+              <div className="space-y-4">
+                <h3 className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-brand-gold opacity-80">Mapa Ubaté</h3>
+                <div className="rounded-2xl overflow-hidden border border-white/10 h-48 w-full">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.8712706761394!2d-73.81806582627742!3d5.311404236063461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e40385d20b2c5ed%3A0xa8ed8f38476e6ea6!2sCl.%2010%20%239%2075%2C%20Ubat%C3%A9%2C%20Villa%20de%20San%20Diego%20de%20Ubat%C3%A9%2C%20Cundinamarca!5e1!3m2!1ses-419!2sco!4v1772734836210!5m2!1ses-419!2sco" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="md:col-span-2">
-          <form className="bg-white/5 backdrop-blur p-10 rounded-3xl border border-white/10 space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Nombre Completo</label>
-                <input type="text" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" />
+          <div className="md:col-span-2">
+            <form onSubmit={handleWhatsApp} className="bg-white/5 backdrop-blur p-10 rounded-3xl border border-white/10 space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={formData.nombre}
+                    onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Número de Celular</label>
+                  <input 
+                    type="tel" 
+                    required
+                    value={formData.celular}
+                    onChange={(e) => setFormData({...formData, celular: e.target.value})}
+                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" 
+                  />
+                </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Número de Celular</label>
-                <input type="tel" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" />
+              
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Sede</label>
+                  <select 
+                    value={formData.sede}
+                    onChange={(e) => setFormData({...formData, sede: e.target.value})}
+                    className="w-full bg-brand-black border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans"
+                  >
+                    <option>Tocancipá</option>
+                    <option>Ubaté</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Fecha</label>
+                  <input 
+                    type="date" 
+                    required
+                    value={formData.fecha}
+                    onChange={(e) => setFormData({...formData, fecha: e.target.value})}
+                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Hora</label>
+                  <input 
+                    type="time" 
+                    required
+                    value={formData.hora}
+                    onChange={(e) => setFormData({...formData, hora: e.target.value})}
+                    className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans" 
+                  />
+                </div>
               </div>
-            </div>
-            <div className="space-y-2">
-              <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">¿A qué sede desea asistir?</label>
-              <select className="w-full bg-brand-black border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans">
-                <option>Tocancipá</option>
-                <option>Ubaté</option>
-              </select>
-            </div>
-            <button 
-              type="button"
-              onClick={openChat}
-              className="w-full bg-brand-green text-white py-4 rounded-xl font-sans font-bold text-lg hover:bg-brand-green-dark transition-all shadow-lg"
-            >
-              AGENDAR CITA PREVIA
-            </button>
-          </form>
+
+              <div className="space-y-2">
+                <label className="text-xs font-sans font-bold uppercase tracking-widest opacity-60">Motivo de la consulta</label>
+                <textarea 
+                  required
+                  value={formData.motivo}
+                  onChange={(e) => setFormData({...formData, motivo: e.target.value})}
+                  placeholder="Ej: Dolor lumbar, cuello, chequeo general..."
+                  className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 outline-none focus:border-brand-green transition-colors font-sans min-h-[100px]"
+                />
+              </div>
+
+              <button 
+                type="submit"
+                className="w-full bg-brand-green text-white py-4 rounded-xl font-sans font-bold text-lg hover:bg-brand-green-dark transition-all shadow-lg flex items-center justify-center gap-2"
+              >
+                <MessageCircle size={20} />
+                AGENDAR CITA PREVIA
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="py-12 bg-stone-900 text-white/40 text-center font-sans text-xs uppercase tracking-[0.2em]">

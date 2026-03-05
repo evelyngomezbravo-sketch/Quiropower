@@ -19,7 +19,7 @@ interface Message {
 export const AitanaChat = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'model', text: '¡Hola! Qué alegría saludarle. Soy Aitana. Cuénteme, ¿en qué podemos ayudarle a mejorar su bienestar hoy?' }
+    { role: 'model', text: '¡Hola! Qué alegría saludarte. Soy Aitana. ¿Con quién tengo el gusto de hablar? Cuéntame, ¿en qué podemos ayudarte hoy?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
