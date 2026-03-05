@@ -11,10 +11,10 @@ import {
   Heart,
   ShieldCheck
 } from 'lucide-react';
-import { GloriaChat } from './components/GloriaChat';
+import { AitanaChat } from './components/AitanaChat';
 
 const openChat = () => {
-  window.dispatchEvent(new CustomEvent('openGloriaChat'));
+  window.dispatchEvent(new CustomEvent('openAitanaChat'));
 };
 
 const Navbar = () => (
@@ -62,7 +62,7 @@ const Hero = () => (
           <span className="italic text-brand-gold">tu energía.</span>
         </h1>
         <p className="text-xl text-stone-600 mb-8 max-w-md font-sans leading-relaxed">
-          En QuiroPower, ayudamos a restaurar el equilibrio natural de tu cuerpo bajo la guía experta del Dr. Luis Quintero.
+          En QuiroPower, ayudamos a restaurar el equilibrio natural de tu cuerpo bajo la guía experta de Luis Quintero.
         </p>
         <div className="flex flex-wrap gap-4">
           <button 
@@ -147,11 +147,11 @@ const DoctorSection = () => (
   <section id="doctor" className="py-24 bg-brand-cream">
     <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
       <div className="order-2 md:order-1">
-        <h2 className="text-5xl font-light mb-6">Dr. Luis <span className="italic">Quintero</span></h2>
-        <p className="text-xl text-brand-green-dark font-medium mb-6 italic">Especialista en Quiropráctica y Salud Espinal</p>
+        <h2 className="text-5xl font-light mb-6">Luis <span className="italic">Quintero</span></h2>
+        <p className="text-xl text-brand-green-dark font-medium mb-6 italic">Medico Especialista en Quiropráctica y Salud Espinal</p>
         <div className="space-y-4 mb-8">
           <p className="text-stone-600 font-sans leading-relaxed">
-            Con más de 15 años de experiencia, el Dr. Luis Quintero ha dedicado su carrera a ayudar a sus pacientes a recuperar su movilidad y calidad de vida.
+            Con más de 15 años de experiencia, Luis Quintero ha dedicado su carrera a ayudar a sus pacientes a recuperar su movilidad y calidad de vida.
           </p>
           <p className="text-stone-600 font-sans leading-relaxed">
             Su enfoque combina técnicas quiroprácticas tradicionales con los últimos avances en neurociencia espinal, asegurando un tratamiento seguro y efectivo para cada paciente.
@@ -174,15 +174,15 @@ const DoctorSection = () => (
       </div>
       <div className="order-1 md:order-2">
         <div className="relative">
-          <div className="aspect-square rounded-full overflow-hidden border-8 border-white shadow-2xl">
+          <div className="aspect-[3/4] rounded-[60px] overflow-hidden border-8 border-white shadow-2xl bg-white">
             <img 
-              src="https://lh3.googleusercontent.com/d/1jBL0Mnz0xFsYrss0C7E8iOXmTlatR7cX" 
-              className="w-full h-full object-cover"
-              alt="Dr. Luis Quintero"
+              src="https://lh3.googleusercontent.com/d/1WYO4rFmH9G_AkKDrc3dqwdDj3pgRxy4n" 
+              className="w-full h-full object-cover object-top"
+              alt="Luis Quintero"
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="absolute -bottom-4 -right-4 bg-white p-6 rounded-2xl shadow-xl border-b-4 border-brand-green">
+          <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border-b-4 border-brand-green z-20">
             <p className="text-3xl font-bold text-brand-green-dark">15+</p>
             <p className="text-xs font-sans font-bold text-stone-500 uppercase tracking-widest">Años de Exp.</p>
           </div>
@@ -309,7 +309,7 @@ const Footer = () => (
   <footer className="py-12 bg-stone-900 text-white/40 text-center font-sans text-xs uppercase tracking-[0.2em]">
     <div className="max-w-7xl mx-auto px-8">
       <p>&copy; {new Date().getFullYear()} QuiroPower Cundinamarca. Todos los derechos reservados.</p>
-      <p className="mt-2">Dr. Luis Quintero - Registro Médico Profesional</p>
+      <p className="mt-2">Luis Quintero - Registro Médico Profesional</p>
     </div>
   </footer>
 );
@@ -326,7 +326,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-      <GloriaChat />
+      <AitanaChat />
     </div>
   );
 }
