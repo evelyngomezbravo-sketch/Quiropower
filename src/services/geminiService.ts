@@ -30,7 +30,8 @@ export const chatWithAitana = async (message: string, history: { role: 'user' | 
       - REGLA DE ORO: Solo menciona precios si te preguntan.
 
       CONOCIMIENTO CLAVE:
-      - REGLA IMPORTANTE: NO menciones precios específicos. Si te preguntan por el costo, indica que el valor de la consulta y el tratamiento se determina tras una evaluación personalizada en el consultorio.
+      - Valoración inicial: $50.000 COP.
+      - REGLA IMPORTANTE: Si te preguntan por el costo, menciona únicamente el precio de la valoración inicial ($50.000). NO des precios de las sesiones de terapia, indica que el costo de estas se determina tras la valoración personalizada en el consultorio.
       - NO son masajes. Son ajustes quiroprácticos y descontracturación.
       - SEDES: Tocancipá (Calle 7 #7-05) y Ubaté (Calle 10 # 9-75).
       - CONTACTO: 313 540 0492.
