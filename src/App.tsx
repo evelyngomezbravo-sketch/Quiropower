@@ -63,28 +63,17 @@ const Hero = () => (
           <span className="italic text-brand-gold">tu energía.</span>
         </h1>
         <p className="text-xl text-stone-600 mb-8 max-w-md font-sans leading-relaxed">
-          En QuiroPower, ayudamos a restaurar el equilibrio natural de tu cuerpo bajo la guía experta de Luis Quintero.
+          Recupera tu bienestar y equilibrio natural con ajustes quiroprácticos profesionales.
         </p>
         <div className="flex flex-wrap gap-4">
           <button 
             onClick={openChat}
             className="bg-brand-green text-white px-8 py-4 rounded-full text-lg font-sans font-bold hover:bg-brand-green-dark transition-all shadow-lg flex items-center gap-2"
           >
-            Empezar ahora <ChevronRight size={20} />
+            Agendar cita <ChevronRight size={20} />
           </button>
           <div className="flex items-center gap-3 px-4 py-2 bg-white/50 backdrop-blur rounded-full border border-white/20">
-            <div className="flex -space-x-2">
-              {[1, 2, 3].map(i => (
-                <img 
-                  key={i}
-                  src={`https://picsum.photos/seed/user${i}/100/100`} 
-                  className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                  alt="Paciente"
-                  referrerPolicy="no-referrer"
-                />
-              ))}
-            </div>
-            <span className="text-xs font-sans font-semibold text-stone-500 uppercase tracking-tighter">
+            <span className="text-xs font-sans font-bold text-brand-green-dark uppercase tracking-widest">
               +500 Pacientes Felices
             </span>
           </div>
@@ -152,10 +141,10 @@ const DoctorSection = () => (
         <p className="text-xl text-brand-green-dark font-medium mb-6 italic">Medico Especialista en Quiropráctica y Salud Espinal</p>
         <div className="space-y-4 mb-8">
           <p className="text-stone-600 font-sans leading-relaxed">
-            Con más de 15 años de experiencia, Luis Quintero ha dedicado su carrera a ayudar a sus pacientes a recuperar su movilidad y calidad de vida.
+            Especialista con más de 15 años de experiencia ayudando a pacientes a recuperar su movilidad y calidad de vida.
           </p>
           <p className="text-stone-600 font-sans leading-relaxed">
-            Su enfoque combina técnicas quiroprácticas tradicionales con los últimos avances en neurociencia espinal, asegurando un tratamiento seguro y efectivo para cada paciente.
+            Su enfoque combina técnicas tradicionales con avances en neurociencia espinal para un tratamiento seguro y efectivo.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -291,6 +280,18 @@ const Contact = () => {
               </div>
             </div>
 
+            <div className="mt-8">
+              <a 
+                href="https://wa.me/573135400492?text=Hola, quiero agendar una cita en QuiroPower."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#25D366] text-white py-4 rounded-xl font-sans font-bold text-lg hover:bg-[#128C7E] transition-all shadow-lg flex items-center justify-center gap-2"
+              >
+                <MessageCircle size={20} />
+                Agendar cita por WhatsApp
+              </a>
+            </div>
+
             <div className="mt-12 space-y-8">
               <div className="space-y-4">
                 <h3 className="text-xs font-sans font-bold uppercase tracking-[0.2em] text-brand-gold opacity-80">Mapa Tocancipá</h3>
@@ -408,10 +409,24 @@ const Contact = () => {
 };
 
 const Footer = () => (
-  <footer className="py-12 bg-stone-900 text-white/40 text-center font-sans text-xs uppercase tracking-[0.2em]">
+  <footer className="py-16 bg-stone-900 text-white text-center font-sans">
     <div className="max-w-7xl mx-auto px-8">
-      <p>&copy; {new Date().getFullYear()} QuiroPower Cundinamarca. Todos los derechos reservados.</p>
-      <p className="mt-2">Luis Quintero - Registro Médico Profesional</p>
+      <div className="mb-12">
+        <h3 className="text-2xl font-light mb-6 italic">Mejora tu calidad de vida hoy</h3>
+        <a 
+          href="https://wa.me/573135400492?text=Hola, quiero agendar una cita en QuiroPower."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 bg-brand-green text-white px-10 py-5 rounded-full font-bold hover:bg-brand-green-dark transition-all shadow-2xl"
+        >
+          <MessageCircle size={24} />
+          Agendar cita por WhatsApp
+        </a>
+      </div>
+      <div className="text-white/40 text-xs uppercase tracking-[0.2em] space-y-2">
+        <p>&copy; {new Date().getFullYear()} QuiroPower Cundinamarca. Todos los derechos reservados.</p>
+        <p>Luis Quintero - Registro Médico Profesional</p>
+      </div>
     </div>
   </footer>
 );
