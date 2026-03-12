@@ -73,6 +73,17 @@ const Hero = () => (
             Agendar cita <ChevronRight size={20} />
           </button>
           <div className="flex items-center gap-3 px-4 py-2 bg-white/50 backdrop-blur rounded-full border border-white/20">
+            <div className="flex -space-x-2">
+              {[1, 2, 3, 4].map((i) => (
+                <img
+                  key={i}
+                  className="w-6 h-6 rounded-full border-2 border-white object-cover"
+                  src={`https://picsum.photos/seed/person${i}/100/100`}
+                  alt={`Paciente ${i}`}
+                  referrerPolicy="no-referrer"
+                />
+              ))}
+            </div>
             <span className="text-xs font-sans font-bold text-brand-green-dark uppercase tracking-widest">
               +500 Pacientes Felices
             </span>
