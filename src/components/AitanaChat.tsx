@@ -54,7 +54,8 @@ export const AitanaChat = () => {
       setMessages(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: 'Hubo un error al conectar. Por favor intenta de nuevo.' }]);
+      const errorMessage = error instanceof Error ? error.message : 'Hubo un error al conectar. Por favor intenta de nuevo.';
+      setMessages(prev => [...prev, { role: 'model', text: errorMessage }]);
     } finally {
       setIsLoading(false);
     }
